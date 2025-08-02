@@ -27,7 +27,7 @@ def predict():
         # Prediction
         predicted_price = model.predict([input_data])[0]
 
-        return render_template('index.html', prediction_text=f'🏠 Predicted House Price: ₹ {round(predicted_price, 2)}')
+        return render_template('index.html', prediction_text=f'🏠 Predicted House Price: {round(predicted_price, 2)}')
 
     except Exception as e:
         return render_template('index.html', prediction_text=f"Error: {str(e)}")
