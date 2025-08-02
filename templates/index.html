@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            padding: 40px;
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #aaa;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2b2b2b;
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>🏡 Enter House Details</h2>
+    <form action="/predict" method="POST">
+        Area (sq ft): <input type="text" name="area" required><br>
+        Bathrooms: <input type="text" name="bathrooms" required><br>
+        Stories: <input type="text" name="stories" required><br>
+        Air Conditioning (1 = Yes, 0 = No): <input type="text" name="airconditioning" required><br>
+        Preferred Area (1 = Yes, 0 = No): <input type="text" name="prefarea" required><br>
+        <input type="submit" value="Predict Price">
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+</body>
+</html>
